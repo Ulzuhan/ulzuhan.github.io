@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — Faro de Fe / Beacon of Faith</title>
+  <meta name="description" content="Política de privacidad de la aplicación Faro de Fe (Beacon of Faith).">
+  <style>
+    :root {
+      --primary: #C0A062;
+      --text: #2C2C2C;
+      --muted: #6b6b6b;
+      --bg: #FDFBF5;
+      --border: #e6e0d2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 32px;
+    }
+    .brand {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 8px 0 4px;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+    .meta { color: var(--muted); font-size: 14px; }
+    .lang-toggle {
+      display: inline-flex;
+      gap: 4px;
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      background: white;
+    }
+    .lang-toggle a {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--muted);
+    }
+    .lang-toggle a.active { background: var(--primary); color: white; }
+    h2 {
+      font-size: 20px;
+      margin-top: 32px;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    h3 {
+      font-size: 16px;
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+    p, li { font-size: 15px; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 4px; }
+    a { color: var(--primary); }
+    code {
+      background: #f1ecdf;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .section-divider {
+      margin: 56px 0 0;
+      border: 0;
+      border-top: 2px dashed var(--border);
+    }
+    footer {
+      margin-top: 56px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .nav-links { margin-top: 8px; }
+    .nav-links a { margin-right: 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brand">Faro de Fe · Beacon of Faith</div>
+      <h1>Política de Privacidad</h1>
+      <div class="meta">Última actualización: 24 de mayo de 2026</div>
+      <div class="lang-toggle">
+        <a href="#es" class="active">Español</a>
+        <a href="#en">English</a>
+      </div>
+    </header>
+
+    <!-- ============================= ESPAÑOL ============================= -->
+    <section id="es">
+
+      <p>Esta Política de Privacidad describe cómo la aplicación móvil <strong>Faro de Fe</strong> (en adelante, "la App") trata la información cuando la usas. La App es desarrollada y publicada por <strong>Manuel Linares</strong> (en adelante, "el Desarrollador"), particular con residencia en España.</p>
+
+      <p>Contacto: <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a></p>
+
+      <h2>1. Resumen rápido</h2>
+      <ul>
+        <li>La App <strong>no requiere registro ni cuenta</strong>.</li>
+        <li>La App <strong>no recopila datos personales identificables</strong>.</li>
+        <li>Todos tus contenidos (diario de gratitud, citas favoritas, ajustes, progreso de oraciones) se guardan <strong>localmente en tu dispositivo</strong> y nunca se envían a servidores del Desarrollador.</li>
+        <li>Se usa una herramienta de analítica anónima (Aptabase) para entender el uso agregado de la App. Puede desactivarse no configurando una clave en compilación; en la versión publicada, solo se envían eventos anónimos sin identificadores personales.</li>
+      </ul>
+
+      <h2>2. Datos que la App trata</h2>
+
+      <h3>2.1. Datos almacenados localmente en tu dispositivo</h3>
+      <p>La App usa <code>shared_preferences</code> y almacenamiento local de Android para guardar:</p>
+      <ul>
+        <li>Entradas de tu Diario de Gratitud.</li>
+        <li>Citas marcadas como favoritas.</li>
+        <li>Idioma seleccionado, modo oscuro, tamaño de letra.</li>
+        <li>Configuración de notificaciones (horas, recordatorios activados).</li>
+        <li>Progreso del Rosario, Vía Crucis, Coronilla de la Divina Misericordia, Novenas y Capilla Votiva.</li>
+        <li>Selecciones del Examen de Conciencia (solo en memoria mientras la pantalla está abierta — nunca se persisten).</li>
+      </ul>
+      <p>Estos datos <strong>no salen de tu dispositivo</strong>. Puedes eliminarlos en cualquier momento desinstalando la App o borrando los datos de la App desde los ajustes del sistema.</p>
+
+      <h3>2.2. Analítica anónima (Aptabase)</h3>
+      <p>La App utiliza <a href="https://aptabase.com/legal/privacy" target="_blank" rel="noopener">Aptabase</a>, una plataforma de analítica respetuosa con la privacidad. Aptabase <strong>no usa cookies, no recopila direcciones IP completas, no rastrea usuarios entre apps y no crea perfiles publicitarios</strong>.</p>
+      <p>Eventos anónimos que se envían:</p>
+      <ul>
+        <li>Apertura de la app.</li>
+        <li>Pestañas visitadas.</li>
+        <li>Cita compartida.</li>
+        <li>Cambio de idioma.</li>
+        <li>Clic en "Invítame un café" (botón de donación).</li>
+      </ul>
+      <p>Junto al evento se envía información agregada del dispositivo (modelo, versión de SO, idioma del sistema, versión de la app, país aproximado derivado de la IP) pero <strong>no se almacena la IP ni ningún identificador que permita reconocerte personalmente</strong>.</p>
+
+      <h3>2.3. Notificaciones locales</h3>
+      <p>Los recordatorios diarios (Inspiración Diaria, Oración de la Mañana, El Ángelus, Oración de la Noche) se programan <strong>íntegramente en tu dispositivo</strong> usando <code>flutter_local_notifications</code>. <strong>No existe servidor de notificaciones push</strong>. Si desactivas los recordatorios o desinstalas la App, dejarán de programarse.</p>
+
+      <h3>2.4. Widget de pantalla de inicio</h3>
+      <p>El widget muestra la cita o el santo del día. El contenido se genera <strong>localmente</strong> a partir de los archivos JSON empaquetados con la App. No se realizan peticiones de red para mantener el widget.</p>
+
+      <h3>2.5. Enlaces externos</h3>
+      <p>Cuando pulsas "Invítame un café" se abre <a href="https://buymeacoffee.com/ulzuhan" target="_blank" rel="noopener">buymeacoffee.com/ulzuhan</a> en tu navegador. A partir de ahí, se aplica la política de privacidad de <strong>Buy Me a Coffee</strong>. El Desarrollador no recibe información sobre la transacción más allá del importe agregado.</p>
+
+      <h2>3. Permisos del sistema y su finalidad</h2>
+      <ul>
+        <li><code>POST_NOTIFICATIONS</code> — Mostrar los recordatorios diarios que el usuario haya activado.</li>
+        <li><code>SCHEDULE_EXACT_ALARM</code> / <code>USE_EXACT_ALARM</code> — Programar los recordatorios a la hora exacta configurada.</li>
+        <li><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code> — Solicitar exención de optimización de batería para que las notificaciones lleguen a su hora incluso con el teléfono en reposo.</li>
+        <li><code>RECEIVE_BOOT_COMPLETED</code> — Reprogramar los recordatorios tras reiniciar el dispositivo.</li>
+        <li><code>WAKE_LOCK</code> / <code>FOREGROUND_SERVICE</code> — Garantizar la entrega de notificaciones programadas.</li>
+        <li><code>VIBRATE</code> — Retroalimentación háptica al rezar el Rosario.</li>
+        <li><code>INTERNET</code> — Únicamente para enviar eventos anónimos a Aptabase y, si pulsas el botón, abrir el enlace de donación.</li>
+      </ul>
+
+      <h2>4. Base legal del tratamiento (RGPD)</h2>
+      <p>Al no recopilarse datos personales identificables, en términos del Reglamento (UE) 2016/679 (RGPD) y la Ley Orgánica 3/2018 (LOPDGDD) la mayor parte del tratamiento queda fuera de su ámbito. Los eventos anónimos enviados a Aptabase se tratan en base al <strong>interés legítimo</strong> (Art. 6.1.f RGPD) de mejorar la calidad y estabilidad de la App, sin afectar a tus derechos al no estar asociados a identificadores personales.</p>
+
+      <h2>5. Conservación</h2>
+      <p>Los datos locales permanecen en tu dispositivo hasta que los borres o desinstales la App. Los eventos anónimos de Aptabase se conservan agregados según la política del proveedor.</p>
+
+      <h2>6. Compartición con terceros</h2>
+      <p>El Desarrollador <strong>no vende, alquila ni comparte datos</strong> con terceros con fines comerciales. Los únicos terceros con los que se interactúa son:</p>
+      <ul>
+        <li><strong>Aptabase</strong> — analítica anónima.</li>
+        <li><strong>Google Play</strong> — distribución de la App.</li>
+        <li><strong>Buy Me a Coffee</strong> — solo si pulsas voluntariamente el botón de donación.</li>
+      </ul>
+
+      <h2>7. Menores</h2>
+      <p>La App es apta para todos los públicos, incluido el contenido devocional. No se solicita información para verificar la edad porque no se recopilan datos personales.</p>
+
+      <h2>8. Tus derechos</h2>
+      <p>Aunque no se almacenan datos personales identificables, puedes ejercer los derechos reconocidos por el RGPD (acceso, rectificación, supresión, limitación, oposición y portabilidad) escribiendo a <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a>. Si consideras que tus derechos no han sido atendidos correctamente, puedes presentar una reclamación ante la <a href="https://www.aepd.es/" target="_blank" rel="noopener">Agencia Española de Protección de Datos (AEPD)</a>.</p>
+
+      <h2>9. Seguridad</h2>
+      <p>Al no manejarse servidores propios, la superficie de ataque se limita al propio dispositivo. Te recomendamos mantener Android actualizado y proteger el acceso al dispositivo con PIN, patrón o biometría.</p>
+
+      <h2>10. Cambios en esta política</h2>
+      <p>Cualquier modificación se publicará en esta misma URL con una fecha de "Última actualización" nueva. El uso continuado de la App tras los cambios implica aceptación de la versión actualizada.</p>
+
+      <h2>11. Contacto</h2>
+      <p>Para cualquier pregunta relacionada con esta política, escribe a <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a>.</p>
+
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============================= ENGLISH ============================= -->
+    <section id="en">
+
+      <h1 style="margin-top: 24px;">Privacy Policy</h1>
+      <div class="meta">Last updated: May 24, 2026</div>
+
+      <p>This Privacy Policy describes how the <strong>Beacon of Faith</strong> mobile app (the "App") handles information when you use it. The App is developed and published by <strong>Manuel Linares</strong> (the "Developer"), an individual based in Spain.</p>
+
+      <p>Contact: <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a></p>
+
+      <h2>1. Quick summary</h2>
+      <ul>
+        <li>The App <strong>does not require an account or sign-up</strong>.</li>
+        <li>The App <strong>does not collect personally identifiable information</strong>.</li>
+        <li>All your content (gratitude journal, favorite quotes, settings, prayer progress) is stored <strong>locally on your device</strong> and is never sent to the Developer's servers.</li>
+        <li>An anonymous analytics tool (Aptabase) is used to understand aggregate App usage. Only anonymous events are sent — no personal identifiers.</li>
+      </ul>
+
+      <h2>2. Data the App handles</h2>
+
+      <h3>2.1. Data stored locally on your device</h3>
+      <p>The App uses <code>shared_preferences</code> and Android local storage to save:</p>
+      <ul>
+        <li>Your Gratitude Journal entries.</li>
+        <li>Quotes marked as favorites.</li>
+        <li>Selected language, dark mode, font size.</li>
+        <li>Notification settings (times, enabled reminders).</li>
+        <li>Progress in the Rosary, Stations of the Cross, Divine Mercy Chaplet, Novenas and Votive Chapel.</li>
+        <li>Examination of Conscience selections (kept only in memory while the screen is open — never persisted).</li>
+      </ul>
+      <p>This data <strong>never leaves your device</strong>. You can delete it at any time by uninstalling the App or clearing the App's data from system settings.</p>
+
+      <h3>2.2. Anonymous analytics (Aptabase)</h3>
+      <p>The App uses <a href="https://aptabase.com/legal/privacy" target="_blank" rel="noopener">Aptabase</a>, a privacy-friendly analytics platform. Aptabase <strong>does not use cookies, does not store full IP addresses, does not track users across apps and does not build advertising profiles</strong>.</p>
+      <p>Anonymous events that are sent:</p>
+      <ul>
+        <li>App open.</li>
+        <li>Tab views.</li>
+        <li>Quote shared.</li>
+        <li>Language changed.</li>
+        <li>Click on "Buy me a coffee" (donation button).</li>
+      </ul>
+      <p>Aggregate device info (model, OS version, system language, app version, approximate country derived from IP) is sent alongside each event, but <strong>no IP address or identifier is stored that could personally identify you</strong>.</p>
+
+      <h3>2.3. Local notifications</h3>
+      <p>Daily reminders (Daily Inspiration, Morning Prayer, The Angelus, Evening Prayer) are scheduled <strong>entirely on your device</strong> via <code>flutter_local_notifications</code>. <strong>There is no push notification server</strong>. If you disable reminders or uninstall the App, they will stop being scheduled.</p>
+
+      <h3>2.4. Home-screen widget</h3>
+      <p>The widget displays the quote or saint of the day. The content is generated <strong>locally</strong> from JSON files bundled with the App. No network requests are made to keep the widget current.</p>
+
+      <h3>2.5. External links</h3>
+      <p>When you tap "Buy me a coffee" the App opens <a href="https://buymeacoffee.com/ulzuhan" target="_blank" rel="noopener">buymeacoffee.com/ulzuhan</a> in your browser. From there, Buy Me a Coffee's own privacy policy applies. The Developer does not receive information about the transaction beyond aggregate amounts.</p>
+
+      <h2>3. System permissions and their purpose</h2>
+      <ul>
+        <li><code>POST_NOTIFICATIONS</code> — Show daily reminders that you have enabled.</li>
+        <li><code>SCHEDULE_EXACT_ALARM</code> / <code>USE_EXACT_ALARM</code> — Schedule reminders at the exact time you configured.</li>
+        <li><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code> — Request a battery-optimization exemption so notifications arrive on time even while the phone is idle.</li>
+        <li><code>RECEIVE_BOOT_COMPLETED</code> — Reschedule reminders after a device reboot.</li>
+        <li><code>WAKE_LOCK</code> / <code>FOREGROUND_SERVICE</code> — Ensure delivery of scheduled notifications.</li>
+        <li><code>VIBRATE</code> — Haptic feedback while praying the Rosary.</li>
+        <li><code>INTERNET</code> — Only to send anonymous events to Aptabase and, if you tap the button, open the donation link.</li>
+      </ul>
+
+      <h2>4. Legal basis (GDPR)</h2>
+      <p>Since no personally identifiable data is collected, most processing falls outside the scope of the EU GDPR. Anonymous events sent to Aptabase are processed based on the <strong>legitimate interest</strong> (Art. 6(1)(f) GDPR) of improving the quality and stability of the App, without affecting your rights as they are not associated with personal identifiers.</p>
+
+      <h2>5. Retention</h2>
+      <p>Local data remains on your device until you delete it or uninstall the App. Anonymous Aptabase events are retained in aggregate form according to the provider's policy.</p>
+
+      <h2>6. Sharing with third parties</h2>
+      <p>The Developer <strong>does not sell, rent or share data</strong> with third parties for commercial purposes. The only third parties involved are:</p>
+      <ul>
+        <li><strong>Aptabase</strong> — anonymous analytics.</li>
+        <li><strong>Google Play</strong> — App distribution.</li>
+        <li><strong>Buy Me a Coffee</strong> — only if you voluntarily tap the donation button.</li>
+      </ul>
+
+      <h2>7. Children</h2>
+      <p>The App is suitable for all audiences. No information is requested to verify age because no personal data is collected.</p>
+
+      <h2>8. Your rights</h2>
+      <p>Although no personally identifiable data is stored, you may exercise the rights granted by the GDPR (access, rectification, erasure, restriction, objection and portability) by writing to <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a>. If you believe your rights have not been properly addressed, you may file a complaint with the <a href="https://www.aepd.es/" target="_blank" rel="noopener">Spanish Data Protection Agency (AEPD)</a>.</p>
+
+      <h2>9. Security</h2>
+      <p>Since there are no servers operated by the Developer, the attack surface is limited to the device itself. We recommend keeping Android up to date and protecting device access with PIN, pattern or biometrics.</p>
+
+      <h2>10. Changes to this policy</h2>
+      <p>Any modification will be published at this same URL with an updated "Last updated" date. Continued use of the App after changes implies acceptance of the updated version.</p>
+
+      <h2>11. Contact</h2>
+      <p>For any question related to this policy, write to <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a>.</p>
+
+    </section>
+
+    <footer>
+      <div class="nav-links">
+        <a href="./index.html">← Beacon of Faith</a>
+        <a href="./terms.html">Términos / Terms</a>
+      </div>
+      <div>© 2026 Manuel Linares · ulzuhan.market@gmail.com</div>
+    </footer>
+
+  </div>
+</body>
+</html>
