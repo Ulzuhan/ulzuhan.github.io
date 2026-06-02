@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stoa: Senda Estoica — Filosofía y Diario Diario</title>
+  <meta name="description" content="Compañero estoico de bolsillo 100% offline y privado. Dicotomía del control, diario estoico, memento mori y academia offline.">
+  
+  <!-- Modern Google Fonts pairings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Lora:ital,wght@0,500;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #121210; /* Ancient obsidian dark */
+      --surface: #1C1C19; /* Greek slate panel */
+      --border: #2E2E28; /* Deep sand outline */
+      --primary: #C0A062; /* Burnished gold accent */
+      --primary-hover: #DBC08C; /* Luminous sand gold */
+      --text: #EAE6DF; /* Premium warm ivory text */
+      --muted: #A39E95; /* Weathered stone text */
+      --card-bg: rgba(28, 28, 25, 0.7);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    
+    /* Elegant background details */
+    .bg-grid {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(192, 160, 98, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 85% 85%, rgba(192, 160, 98, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .wrap {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    
+    /* Classical architecture header */
+    .logo-container {
+      margin-bottom: 32px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .logo {
+      width: 104px;
+      height: 104px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, var(--surface), #262622);
+      border: 2px solid var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 15px rgba(192, 160, 98, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: translateY(-4px) rotate(2deg);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.6), 0 0 25px rgba(192, 160, 98, 0.4);
+    }
+    
+    .logo svg {
+      width: 56px;
+      height: 56px;
+      fill: var(--primary);
+    }
+    
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      background: linear-gradient(to right, #ffffff, var(--primary-hover), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-transform: uppercase;
+      animation: fadeInDown 0.8s ease;
+    }
+    
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeInUp 0.8s ease;
+    }
+    
+    .quote-box {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--primary);
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+      padding: 0 20px;
+      border-left: 2px solid rgba(192, 160, 98, 0.3);
+      border-right: 2px solid rgba(192, 160, 98, 0.3);
+      animation: fadeIn 1.2s ease;
+    }
+    
+    .quote-author {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 12px;
+      color: var(--muted);
+    }
+    
+    .description {
+      text-align: left;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px;
+      margin-bottom: 48px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1s ease;
+    }
+    
+    .description p {
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+    
+    .description p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      text-align: left;
+      margin-bottom: 48px;
+    }
+    
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+      box-shadow: 0 8px 24px rgba(192, 160, 98, 0.08);
+    }
+    
+    .feature-icon {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    
+    .feature-title {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    
+    .feature-desc {
+      font-size: 0.9rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+    
+    .links-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    
+    .btn {
+      padding: 14px 32px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: var(--bg);
+      box-shadow: 0 8px 24px rgba(192, 160, 98, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(192, 160, 98, 0.4);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    
+    footer {
+      margin-top: 80px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    footer a:hover {
+      color: var(--primary-hover);
+    }
+    
+    .back-home {
+      display: block;
+      margin-top: 24px;
+      font-size: 0.9rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @media (max-width: 680px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        font-size: 2.4rem;
+      }
+      .wrap {
+        padding: 48px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  
+  <div class="wrap">
+    
+    <div class="logo-container">
+      <div class="logo">
+        <!-- Elegant classical columns / temple icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M4 10h3v9H4zm5 0h3v9H9zm5 0h3v9h-3zm5 0h3v9h-3zM2 22h20v-2H2zm10-20L2 7v2h20V7z"/>
+        </svg>
+      </div>
+    </div>
+    
+    <h1>Stoa</h1>
+    <div class="subtitle">Senda Estoica</div>
+    
+    <div class="quote-box">
+      "No pretendas que los sucesos ocurran como tú quieres, sino quiere que los sucesos ocurran como ocurren y te irá bien."
+      <div class="quote-author">— Epicteto</div>
+    </div>
+    
+    <div class="description">
+      <p><strong>Stoa: Senda Estoica</strong> es una fortaleza mental de bolsillo. Una aplicación móvil diseñada con arquitectura 100% offline y de coste cero, enfocada en proteger con absoluto rigor tu privacidad. Aquí tus reflexiones, temores y pensamientos jamás saldrán de tu dispositivo.</p>
+      <p style="color: var(--muted); font-size: 0.95rem;">Un refugio diario de paz y templanza, inspirado en Marco Aurelio, Séneca y Epicteto para ejercitar tu carácter de manera práctica.</p>
+    </div>
+    
+    <div class="features-grid">
+      
+      <div class="feature-card">
+        <span class="feature-icon">🏛️</span>
+        <h3 class="feature-title">Dicotomía del Control</h3>
+        <p class="feature-desc">Separa racionalmente las situaciones que dependen de tu voluntad de las que corresponden al destino externo.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">✒️</span>
+        <h3 class="feature-title">Diario de Fortaleza</h3>
+        <p class="feature-desc">Escribe tus reflexiones matutinas para preparar tu carácter y tus exámenes nocturnos de conciencia.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">⏳</span>
+        <h3 class="feature-title">Memento Mori</h3>
+        <p class="feature-desc">Un tapiz interactivo en cuadrícula de tus semanas de vida para valorar activamente cada instante presente.</p>
+      </div>
+      
+      <div class="feature-card">
+        <span class="feature-icon">📜</span>
+        <h3 class="feature-title">Academia Offline</h3>
+        <p class="feature-desc">Aprende los fundamentos de la Estoa y las virtudes cardinales con lecciones clásicas disponibles sin conexión.</p>
+      </div>
+      
+    </div>
+    
+    <div class="links-container">
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.stoa.senda_estoica" target="_blank" rel="noopener">
+        <span>Google Play</span>
+      </a>
+      <a class="btn btn-secondary" href="./privacy.html">Política de Privacidad</a>
+      <a class="btn btn-secondary" href="./terms.html">Términos de Uso</a>
+    </div>
+    
+    <footer>
+      <p>© 2026 Manuel Linares · <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a></p>
+      <a class="back-home" href="../">← ulzuhan</a>
+    </footer>
+    
+  </div>
+</body>
+</html>

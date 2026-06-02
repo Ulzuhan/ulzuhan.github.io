@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — Stoa: Senda Estoica</title>
+  <meta name="description" content="Política de privacidad de la aplicación Stoa: Senda Estoica.">
+  <style>
+    :root {
+      --primary: #C0A062;
+      --primary-dark: #a8884d;
+      --text: #2C2C2C;
+      --muted: #6b6b6b;
+      --bg: #FDFBF5;
+      --border: #e6e0d2;
+      --panel: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 80px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 32px;
+    }
+    .brand {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 8px 0 4px;
+      font-size: 28px;
+      line-height: 1.25;
+    }
+    .meta { color: var(--muted); font-size: 14px; }
+    .lang-toggle {
+      display: inline-flex;
+      gap: 4px;
+      margin-top: 16px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      background: var(--panel);
+    }
+    .lang-toggle a {
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--muted);
+    }
+    .lang-toggle a.active { background: var(--primary); color: white; }
+    h2 {
+      font-size: 20px;
+      margin-top: 32px;
+      margin-bottom: 8px;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+    }
+    h3 {
+      font-size: 16px;
+      margin-top: 20px;
+      margin-bottom: 6px;
+    }
+    p, li { font-size: 15px; }
+    ul { padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    a { color: var(--primary); }
+    code {
+      background: #f1ecdf;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .section-divider {
+      margin: 56px 0 0;
+      border: 0;
+      border-top: 2px dashed var(--border);
+    }
+    footer {
+      margin-top: 56px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .nav-links { margin-top: 8px; }
+    .nav-links a { margin-right: 12px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brand">Stoa · Senda Estoica</div>
+      <h1>Política de Privacidad</h1>
+      <div class="meta">Última actualización: 2 de junio de 2026</div>
+      <div class="lang-toggle">
+        <a href="#es" class="active">Español</a>
+        <a href="#en">English</a>
+      </div>
+    </header>
+
+    <!-- ============================= ESPAÑOL ============================= -->
+    <section id="es">
+
+      <p>Esta Política de Privacidad describe cómo la aplicación móvil <strong>Stoa: Senda Estoica</strong> (en adelante, "la App") trata la información cuando la usas. La App es desarrollada y publicada por <strong>Manuel Linares</strong> (en adelante, "el Desarrollador"), particular con residencia en España.</p>
+
+      <p>Contacto: <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a></p>
+
+      <h2>1. Resumen rápido</h2>
+      <ul>
+        <li>La App <strong>no requiere registro, credenciales ni creación de cuenta</strong> de ningún tipo.</li>
+        <li>La App <strong>no recopila, almacena ni transmite datos personales identificables</strong> a servidores externos del Desarrollador.</li>
+        <li>Todos tus datos personales de uso (entradas del Diario Estoico, columnas de Dicotomía del Control, bitácora de templanza, virtudes registradas y fecha de nacimiento de Memento Mori) se almacenan <strong>de manera 100% local</strong> en tu dispositivo a través de una base de datos segura y preferencias locales.</li>
+        <li>La App utiliza una herramienta de analítica respetuosa con la privacidad (Aptabase) para monitorizar errores técnicos de manera totalmente anónima. Ningún dato analítico permite identificarte ni rastrearte personalmente.</li>
+        <li>Las donaciones o compras de temas premium dentro de la aplicación se gestionan íntegramente a través de la pasarela de Google Play, por lo que el Desarrollador jamás tiene acceso a tus datos de pago.</li>
+      </ul>
+
+      <h2>2. Datos que la App trata</h2>
+
+      <h3>2.1. Datos almacenados localmente en tu dispositivo</h3>
+      <p>Para su funcionamiento óptimo, la App almacena la siguiente información localmente en tu dispositivo a través de bases de datos relacionales SQLite (<code>sqflite</code>) y preferencias persistentes (<code>shared_preferences</code>):</p>
+      <ul>
+        <li><strong>Diario Estoico:</strong> Entradas de reflexiones escritas (reflexiones matutinas, exámenes nocturnos y notas libres).</li>
+        <li><strong>Dicotomía del Control:</strong> Las listas de preocupaciones clasificadas bajo tu control o fuera de tu control.</li>
+        <li><strong>Bitácora y Virtudes:</strong> Puntuaciones diarias de templanza/estado de ánimo y las virtudes estoicas practicadas (sabiduría, coraje, justicia, templanza).</li>
+        <li><strong>Progreso de la Academia:</strong> Registro de las lecciones clásicas leídas e integradas en tu carácter.</li>
+        <li><strong>Memento Mori:</strong> Tu fecha de nacimiento (necesaria exclusivamente para realizar los cálculos matemáticos offline de la cuadrícula de semanas transcurridas) y la fecha de la última cita diaria mostrada.</li>
+        <li><strong>Citas Favoritas:</strong> Citas estoicas que marques con un corazón para consultarlas rápidamente.</li>
+        <li><strong>Preferencias del sistema:</strong> Configuración del idioma, tema visual premium elegido (Obsidiana, Mármol, Arcilla o Clásico), escala de tipografía y recordatorios.</li>
+      </ul>
+      <p><strong>Estos datos nunca salen de tu dispositivo</strong>. Puedes borrarlos en su totalidad desinstalando la App, borrando su caché/datos desde los ajustes del sistema operativo Android, o importando una copia vacía.</p>
+
+      <h3>2.2. Copias de seguridad locales</h3>
+      <p>La App incluye una funcionalidad para <strong>exportar e importar copias de seguridad locales</strong>. Al exportar tus datos, la aplicación genera un archivo estructurado en formato JSON en la ubicación de tu dispositivo que tú decidas a través de <code>file_picker</code>. Al importar un respaldo anterior, este archivo JSON se lee para restaurar tu diario localmente. Este proceso es completamente offline y privado.</p>
+
+      <h3>2.3. Analítica anónima (Aptabase)</h3>
+      <p>La App integra la plataforma de analítica minimalista y privada <a href="https://aptabase.com/legal/privacy" target="_blank" rel="noopener">Aptabase</a>. Aptabase cumple plenamente con el RGPD y está diseñada para no invadir tu privacidad: <strong>no usa cookies, no almacena ni procesa direcciones IP, no rastrea tu actividad entre diferentes aplicaciones y no crea ningún tipo de perfil publicitario</strong>.</p>
+      <p>Los únicos eventos de telemetría anónimos que se procesan son:</p>
+      <ul>
+        <li>Apertura y cierre de la aplicación.</li>
+        <li>Navegación entre las pestañas internas de la app (Inicio, Citas, Control, Diario, Memento Mori, Academia, Ajustes).</li>
+        <li>Compartición de una cita a otras apps.</li>
+        <li>Cambio en el idioma o apariencia de la interfaz.</li>
+        <li>Uso de la función de copia de seguridad local.</li>
+        <li>Acceso a la sección de donaciones y soporte.</li>
+      </ul>
+      <p>Junto con el evento se transmite información agregada básica (modelo de hardware del dispositivo, versión del sistema operativo, versión instalada de la app, e idioma regional), pero <strong>no se almacena ningún identificador ni dirección de red</strong> que permita reconocerte personalmente.</p>
+
+      <h3>2.4. Notificaciones locales</h3>
+      <p>Los recordatorios estoicos diarios se configuran y activan <strong>íntegramente en tu dispositivo físico</strong> mediante <code>flutter_local_notifications</code>. <strong>No existe ningún servidor remoto que envíe notificaciones push</strong>. Al desactivar las alertas en los Ajustes o desinstalar la aplicación, todos los recordatorios locales programados se cancelan de inmediato.</p>
+
+      <h3>2.5. Haptic / Vibración</h3>
+      <p>La aplicación utiliza el permiso de vibración del dispositivo para ofrecer retroalimentación física táctil (haptic feedback) al interactuar con ciertos elementos de la interfaz, como al marcar semanas en el tapiz de Memento Mori o al pulsar botones clave.</p>
+
+      <h3>2.6. Enlaces y pasarela de pago</h3>
+      <p>La aplicación te permite apoyar el desarrollo del proyecto a través de dos mecanismos:</p>
+      <ul>
+        <li><strong>Donaciones In-App:</strong> Compras integradas simplificadas a través del SDK oficial de Google Play Billing (<code>in_app_purchase</code>) para adquirir tiers de soporte ("Ofrenda de Madera", "Templo Estoico", "Legado de la Senda") y desbloquear temas premium. Google Play procesa esta transacción de forma totalmente ajena al Desarrollador. El Desarrollador solo recibe una confirmación agregada anónima de compra válida para habilitar la característica en tu terminal.</li>
+        <li><strong>Buy Me a Coffee:</strong> Enlaces externos que abren en tu navegador web la dirección <a href="https://buymeacoffee.com/ulzuhan" target="_blank" rel="noopener">buymeacoffee.com/ulzuhan</a>. Esta pasarela se rige por su propia política de privacidad, sin que el Desarrollador tenga acceso a tus datos bancarios.</li>
+      </ul>
+
+      <h2>3. Permisos del sistema y su finalidad</h2>
+      <p>Para prestar sus servicios, la App solicita acceso a los siguientes permisos de Android:</p>
+      <ul>
+        <li><code>POST_NOTIFICATIONS</code> — Para poder enviarte la notificación diaria con la cita o el recordatorio estoico.</li>
+        <li><code>SCHEDULE_EXACT_ALARM</code> — Para programar el aviso diario en el momento exacto definido por ti, sin retrasos provocados por el sistema operativo.</li>
+        <li><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code> — Para solicitar exclusión de los límites de ahorro de batería y asegurar que los recordatorios se activen a su hora incluso si el terminal lleva horas en reposo (doze mode).</li>
+        <li><code>RECEIVE_BOOT_COMPLETED</code> — Permite restablecer tus alarmas y recordatorios locales de forma automática cuando el dispositivo móvil se reinicia.</li>
+        <li><code>WAKE_LOCK</code> / <code>FOREGROUND_SERVICE</code> — Garantiza que el planificador de alarmas internas de Android procese los recordatorios correspondientes a tiempo.</li>
+        <li><code>VIBRATE</code> — Para proporcionar retroalimentación física suave al navegar y pulsar botones.</li>
+        <li><code>INTERNET</code> — Requerido para verificar licencias agregadas de Google Play Billing y transmitir eventos de diagnóstico de analítica anónima a Aptabase.</li>
+      </ul>
+
+      <h2>4. Base legal del tratamiento (RGPD / LOPDGDD)</h2>
+      <p>Puesto que <strong>Stoa: Senda Estoica</strong> no procesa ni almacena datos de carácter personal que puedan identificarte directa o indirectamente, los tratamientos de la App quedan mayoritariamente fuera del ámbito del Reglamento General de Protección de Datos (UE) 2016/679 (RGPD) y de la Ley Orgánica 3/2018 (LOPDGDD). Respecto al uso de Aptabase, se realiza bajo el amparo de nuestro <strong>interés legítimo</strong> (Art. 6.1.f del RGPD) de cara a depurar fallos en la app y garantizar la estabilidad del software, no afectando a tus derechos fundamentales al ser completamente anónimo.</p>
+
+      <h2>5. Conservación de datos</h2>
+      <p>Todas tus entradas del diario, dicotomías, bitácoras y configuraciones se conservan localmente en el almacenamiento persistente de tu dispositivo <strong>de forma indefinida</strong>, o hasta que decidas borrarlos de manera voluntaria, bien eliminándolos uno a uno, borrando el almacenamiento de la app, o desinstalándola.</p>
+
+      <h2>6. Compartición con terceros</h2>
+      <p>El Desarrollador de Stoa: Senda Estoica <strong>jamás venderá, alquilará, comerciará ni compartirá tus datos</strong> con terceros con ningún fin lucrativo o comercial. Los únicos servicios que intervienen indirectamente en la experiencia son:</p>
+      <ul>
+        <li><strong>Aptabase:</strong> Recopilación y almacenamiento de telemetría anónima agregada de calidad de software.</li>
+        <li><strong>Google Play Services:</strong> Distribución segura del paquete de la aplicación, control de licencias de donación y procesamiento de cobros in-app.</li>
+      </ul>
+
+      <h2>7. Protección de Menores</h2>
+      <p>La aplicación está clasificada en la Google Play Store para usuarios <strong>a partir de 13 años</strong>. Al no recopilarse datos identificativos de ningún tipo (nombre, correo electrónico, ubicación precisa, edad verificada), la aplicación no procesa intencionadamente información personal de menores de edad. Si tienes motivos para creer que un menor de 13 años nos ha hecho llegar datos de contacto por otra vía (por ejemplo, a través de soporte por correo electrónico), ponte en contacto con nosotros en <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a> para su inmediata eliminación.</p>
+
+      <h2>8. Seguridad de la Información</h2>
+      <p>Dado que no operamos servidores propios ni bases de datos en la nube, el almacenamiento de tus reflexiones y diarios estoicos es tan seguro como el propio dispositivo que manejas. Te recomendamos encarecidamente utilizar las funciones de seguridad nativas de Android (bloqueo por PIN, huella digital o patrón) para salvaguardar tu terminal de accesos físicos no autorizados por parte de terceros.</p>
+
+      <h2>9. Tus Derechos</h2>
+      <p>De conformidad con la normativa europea de protección de datos (RGPD), tienes derecho a acceder, rectificar, suprimir o limitar el tratamiento de tus datos personales. No obstante, dado que los datos de tu diario estoico se almacenan en tu dispositivo y el Desarrollador carece de servidores o identidades de usuario para buscar o recuperar tus registros, el ejercicio efectivo de tus derechos de acceso, modificación o borrado se realiza por ti mismo borrando o desinstalando la aplicación. Para cualquier otra consulta relacionada con tus derechos de privacidad, o si deseas presentar una queja sobre el soporte brindado, puedes dirigirte al Desarrollador por correo o plantear una reclamación formal ante la <a href="https://www.aepd.es/" target="_blank" rel="noopener">Agencia Española de Protección de Datos (AEPD)</a>.</p>
+
+      <h2>10. Cambios en esta política</h2>
+      <p>Esta política de privacidad puede ser actualizada de manera oportuna con motivo de nuevas funciones o directivas de la tienda de aplicaciones. Toda modificación será publicada en esta misma dirección web actualizando la fecha del encabezado. La continuidad en el uso de la aplicación tras una modificación constituirá tu aceptación de los nuevos términos.</p>
+
+      <h2>11. Información de contacto</h2>
+      <p>Para clarificar cualquier duda sobre este documento o las prácticas de privacidad de la app, puedes escribir al Desarrollador a <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a>.</p>
+
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ============================= ENGLISH ============================= -->
+    <section id="en">
+
+      <h1 style="margin-top: 24px;">Privacy Policy</h1>
+      <div class="meta">Last updated: June 2, 2026</div>
+
+      <p>This Privacy Policy describes how the mobile application <strong>Stoa: Senda Estoica</strong> (hereinafter, "the App") handles information when you use it. The App is developed and published by <strong>Manuel Linares</strong> (hereinafter, "the Developer"), an individual residing in Spain.</p>
+
+      <p>Contact: <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a></p>
+
+      <h2>1. Quick summary</h2>
+      <ul>
+        <li>The App <strong>does not require any registration, credentials, or account creation</strong>.</li>
+        <li>The App <strong>does not collect, store, or transmit personally identifiable data</strong> to the Developer's external servers.</li>
+        <li>All your personal usage data (Stoic Journal entries, Dichotomy of Control columns, temperance/mood scores, logged virtues, and Memento Mori date of birth) is stored <strong>100% locally</strong> on your physical device using a secure database and local preferences.</li>
+        <li>The App utilizes a privacy-friendly analytics tool (Aptabase) to monitor technical diagnostics anonymously. No analytical event permits identifying or tracking you personally.</li>
+        <li>Donations and premium theme purchases are processed entirely through the secure Google Play Billing system; the Developer never has access to your credit card or financial details.</li>
+      </ul>
+
+      <h2>2. Data the App handles</h2>
+
+      <h3>2.1. Data stored locally on your device</h3>
+      <p>For its optimal performance, the App stores the following information locally on your device using a relational SQLite database (<code>sqflite</code>) and persistent settings (<code>shared_preferences</code>):</p>
+      <ul>
+        <li><strong>Stoic Journal:</strong> Written reflection entries (morning reflections, evening reviews, and free notes).</li>
+        <li><strong>Dichotomy of Control:</strong> Lists of worries sorted under your control or out of your control.</li>
+        <li><strong>Temperance Log &amp; Virtues:</strong> Daily temperance scores and the stoic virtues practiced (wisdom, courage, justice, temperance).</li>
+        <li><strong>Academy Progress:</strong> Local records of classical wisdom lessons read and integrated into your character.</li>
+        <li><strong>Memento Mori:</strong> Your date of birth (required exclusively for carrying out offline math calculations to render the grid of elapsed weeks) and the date of the last daily quote shown.</li>
+        <li><strong>Favorite Quotes:</strong> Stoic quotes that you mark with a heart icon for quick retrieval.</li>
+        <li><strong>System Preferences:</strong> Selected language, chosen premium layout theme (Obsidian, Marble, Clay, or Default), font scaling settings, and local reminder timing.</li>
+      </ul>
+      <p><strong>This data never leaves your device</strong>. You can completely erase it by uninstalling the App, clearing its cache and data from Android settings, or importing a blank backup file.</p>
+
+      <h3>2.2. Local backups</h3>
+      <p>The App includes a feature to <strong>export and import local backups</strong>. When exporting your data, the app generates a structured JSON file at a location of your choice on your device via <code>file_picker</code>. When importing, this JSON file is read to restore your journals locally. This process runs entirely offline and privately.</p>
+
+      <h3>2.3. Anonymous analytics (Aptabase)</h3>
+      <p>The App integrates <a href="https://aptabase.com/legal/privacy" target="_blank" rel="noopener">Aptabase</a>, a minimal and privacy-centric analytics platform. Aptabase is fully GDPR compliant and designed not to invade your privacy: <strong>it does not use cookies, does not store or process IP addresses, does not track your behavior across different apps, and does not build advertising profiles</strong>.</p>
+      <p>The only anonymous telemetry events processed are:</p>
+      <ul>
+        <li>App open and close.</li>
+        <li>Navigation between internal tabs (Home, Quotes, Control, Journal, Memento Mori, Academy, Settings).</li>
+        <li>Sharing a quote to other apps.</li>
+        <li>Change in UI language or appearance.</li>
+        <li>Use of the local backup and restore feature.</li>
+        <li>Accessing the support and donation screen.</li>
+      </ul>
+      <p>Along with the event, basic aggregate telemetry (device model, operating system version, app package version, and regional language) is transmitted, but <strong>no persistent identifiers or network addresses are stored</strong> that would allow you to be personally recognized.</p>
+
+      <h3>2.4. Local notifications</h3>
+      <p>Daily stoic reminders are configured and triggered <strong>entirely on your physical device</strong> using <code>flutter_local_notifications</code>. <strong>There is no remote push notification server</strong>. When you disable reminders in Settings or uninstall the app, all scheduled local alarms are immediately canceled.</p>
+
+      <h3>2.5. Haptics / Vibration</h3>
+      <p>The application uses the device's vibration permission to provide gentle haptic tactile feedback when interacting with specific layout elements, such as marking weeks in the Memento Mori canvas or tapping critical action buttons.</p>
+
+      <h3>2.6. Links and payment gateway</h3>
+      <p>The application allows you to support the development of the project through two routes:</p>
+      <ul>
+        <li><strong>In-App Donations:</strong> Built-in donations handled via the official Google Play Billing SDK (<code>in_app_purchase</code>) to purchase support tiers ("Wood Offering", "Stoic Temple", "Legacy of the Path") and unlock premium visual themes. Google Play processes these transactions entirely outside of the Developer's scope. The Developer only receives an anonymous aggregate purchase confirmation to enable the chosen feature in your terminal.</li>
+        <li><strong>Buy Me a Coffee:</strong> External links that open the URL <a href="https://buymeacoffee.com/ulzuhan" target="_blank" rel="noopener">buymeacoffee.com/ulzuhan</a> in your browser. This platform operates under its own privacy policy, and the Developer has zero access to your credit card or billing details.</li>
+      </ul>
+
+      <h2>3. System permissions and their purpose</h2>
+      <p>To deliver its features, the App requests access to the following Android permissions:</p>
+      <ul>
+        <li><code>POST_NOTIFICATIONS</code> — To send you the daily notification with the stoic quote or reflection reminder.</li>
+        <li><code>SCHEDULE_EXACT_ALARM</code> — To schedule daily alarms at the precise minute specified by you, bypassing operating system delays.</li>
+        <li><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code> — To request exemption from OS battery-saving limits, assuring reminders trigger on time even if the phone has been resting in doze mode for hours.</li>
+        <li><code>RECEIVE_BOOT_COMPLETED</code> — Allows the app to reschedule your local alarms and notifications automatically when the phone reboots.</li>
+        <li><code>WAKE_LOCK</code> / <code>FOREGROUND_SERVICE</code> — Assures the internal Android alarm scheduler handles the reminders properly and timely.</li>
+        <li><code>VIBRATE</code> — To provide gentle physical haptic feedback during interactive navigation.</li>
+        <li><code>INTERNET</code> — Required to verify Google Play Billing licensing and transmit anonymous diagnostic quality metrics to Aptabase.</li>
+      </ul>
+
+      <h2>4. Legal basis (GDPR)</h2>
+      <p>Since <strong>Stoa: Senda Estoica</strong> does not process or store personal data that could directly or indirectly identify you, the App's activities fall largely outside the scope of the General Data Protection Regulation (EU) 2016/679 (GDPR). The processing of anonymous telemetries via Aptabase is backed by our <strong>legitimate interest</strong> (Art. 6(1)(f) GDPR) to debug app bugs and ensure general software performance, which does not affect your fundamental rights due to its completely anonymous nature.</p>
+
+      <h2>5. Data Retention</h2>
+      <p>All your journal entries, dichotomies, logs, and settings are preserved in your device's persistent local storage <strong>indefinitely</strong>, or until you choose to delete them by clearing the app's cache/data, deleting entries manually, or uninstalling the app.</p>
+
+      <h2>6. Sharing with Third Parties</h2>
+      <p>The Developer of Stoa: Senda Estoica <strong>never sells, rents, trades, or shares your personal data</strong> with third parties for commercial or lucrative gains. The only services involved indirectly are:</p>
+      <ul>
+        <li><strong>Aptabase:</strong> Collection and storage of anonymous, aggregated telemetry regarding software quality.</li>
+        <li><strong>Google Play Services:</strong> Safe package distribution, donation license verification, and secure in-app checkout processing.</li>
+      </ul>
+
+      <h2>7. Children's Privacy</h2>
+      <p>The app is rated on the Google Play Store for users <strong>aged 13 and over</strong>. Because no personal identification is collected (name, email, precise location, verified age), the application does not knowingly handle personal information from minors. If you have reason to believe that a child under 13 has sent us personal information by other means (e.g. support email), please contact us at <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a> for its immediate removal.</p>
+
+      <h2>8. Information Security</h2>
+      <p>Since we do not operate our own servers or cloud databases, the safety of your stoic journals is as secure as the device you hold. We strongly recommend setting up native Android screen locks (PIN, fingerprint, pattern) to protect your terminal from unauthorized physical access by third parties.</p>
+
+      <h2>9. Your Rights</h2>
+      <p>Under European data protection laws (GDPR), you have the right to access, rectify, delete, or limit the processing of your personal data. However, since your stoic journal data is stored on your device and the Developer has no user databases or servers, the actual exercise of these rights is performed directly by you by deleting records or uninstalling the app. For other inquiries regarding your privacy rights, or to submit a complaint, you may write to the Developer or file a formal complaint with the <a href="https://www.aepd.es/" target="_blank" rel="noopener">Spanish Data Protection Agency (AEPD)</a>.</p>
+
+      <h2>10. Changes to this Policy</h2>
+      <p>This privacy policy may be updated from time to time to align with new features or store directives. Any changes will be published on this same web address along with an updated date in the header. Your continued use of the app after updates constitutes your agreement to the new terms.</p>
+
+      <h2>11. Contact information</h2>
+      <p>For any questions or comments regarding this privacy statement or the app's practices, feel free to write to the Developer at <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a>.</p>
+
+    </section>
+
+    <footer>
+      <div class="nav-links">
+        <a href="./index.html">← Stoa / Senda Estoica</a>
+        <a href="./terms.html">Términos / Terms</a>
+      </div>
+      <div>© 2026 Manuel Linares · ulzuhan.market@gmail.com</div>
+    </footer>
+
+  </div>
+</body>
+</html>
