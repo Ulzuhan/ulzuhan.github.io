@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Faro de Fe · Beacon of Faith</title>
-  <meta name="description" content="App católica de inspiración diaria — citas, santo del día, rosario, novenas y más.">
+  <meta name="description" id="meta-desc" content="App católica de inspiración diaria — citas, santo del día, rosario, novenas y más.">
   <style>
     :root {
       --primary: #C0A062;
@@ -13,6 +13,7 @@
       --muted: #6b6b6b;
       --bg: #FDFBF5;
       --border: #e6e0d2;
+      --surface: #ffffff;
     }
     * { box-sizing: border-box; }
     body {
@@ -25,9 +26,46 @@
     .wrap {
       max-width: 720px;
       margin: 0 auto;
-      padding: 64px 24px 80px;
+      padding: 96px 24px 80px;
       text-align: center;
+      position: relative;
     }
+    
+    /* Language selector premium styling */
+    .lang-selector {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      display: inline-flex;
+      gap: 4px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      background: var(--surface);
+      z-index: 100;
+    }
+    
+    .lang-selector button {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .lang-selector button.active {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    
+    .lang-selector button:hover:not(.active) {
+      color: var(--text);
+    }
+
     .logo {
       width: 96px;
       height: 96px;
@@ -92,30 +130,135 @@
       font-size: 13px;
     }
     footer a { color: var(--primary); }
+
+    .back-home {
+      display: block;
+      margin-top: 24px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 80px 16px 40px;
+      }
+      .lang-selector {
+        top: 16px;
+        right: 16px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
+    
+    <!-- Premium Language Selector -->
+    <div class="lang-selector">
+      <button id="btn-es" onclick="switchLanguage('es')">ES</button>
+      <button id="btn-en" onclick="switchLanguage('en')">EN</button>
+    </div>
+
     <div class="logo">✝</div>
-    <h1>Faro de Fe</h1>
-    <div class="subtitle">Beacon of Faith</div>
-    <div class="tagline">Una luz en tu camino espiritual</div>
+    <h1 data-i18n="title">Faro de Fe</h1>
+    <div class="subtitle" data-i18n="subtitle">Beacon of Faith</div>
+    <div class="tagline" data-i18n="tagline">Una luz en tu camino espiritual</div>
 
     <div class="description">
-      <p>App católica gratuita de inspiración diaria. Recibe citas de la Biblia y los santos, conoce al santo del día, reza el Rosario y la Coronilla de la Divina Misericordia, completa el Vía Crucis, mantén tu diario de gratitud y enciende velas de petición. Todo en tu dispositivo, sin cuenta, sin anuncios.</p>
-      <p style="color: var(--muted); font-size: 14px;">Free Catholic devotional app — daily quotes and saints, Rosary, Divine Mercy Chaplet, Stations of the Cross, gratitude journal, votive chapel. All on your device, no account required, ad-free.</p>
+      <p data-i18n="desc_p1">App católica gratuita de inspiración diaria. Recibe citas de la Biblia y los santos, conoce al santo del día, reza el Rosario y la Coronilla de la Divina Misericordia, completa el Vía Crucis, mantén tu diario de gratitud y enciende velas de petición. Todo en tu dispositivo, sin cuenta, sin anuncios.</p>
     </div>
 
     <div class="links">
       <a class="btn-primary" href="https://play.google.com/store/apps/details?id=com.ulzuhan.beacon_of_faith">Google Play</a>
-      <a class="btn-secondary" href="./privacy.html">Política de Privacidad</a>
-      <a class="btn-secondary" href="./terms.html">Términos de Uso</a>
+      <a class="btn-secondary" href="./privacy.html" data-i18n="btn_privacy">Política de Privacidad</a>
+      <a class="btn-secondary" href="./terms.html" data-i18n="btn_terms">Términos de Uso</a>
     </div>
 
     <footer>
       <p>© 2026 Manuel Linares · <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a></p>
-      <p><a href="../">← ulzuhan</a></p>
+      <a class="back-home" href="../" data-i18n="back_home">← ulzuhan</a>
     </footer>
   </div>
+
+  <!-- Vanilla i18n Engine -->
+  <script>
+    const translations = {
+      es: {
+        meta_title: "Faro de Fe · Beacon of Faith",
+        meta_desc: "App católica de inspiración diaria — citas, santo del día, rosario, novenas y más.",
+        title: "Faro de Fe",
+        subtitle: "Beacon of Faith",
+        tagline: "Una luz en tu camino espiritual",
+        desc_p1: "App católica gratuita de inspiración diaria. Recibe citas de la Biblia y los santos, conoce al santo del día, reza el Rosario y la Coronilla de la Divina Misericordia, completa el Vía Crucis, mantén tu diario de gratitud y enciende velas de petición. Todo en tu dispositivo, sin cuenta, sin anuncios.",
+        btn_privacy: "Política de Privacidad",
+        btn_terms: "Términos de Uso",
+        back_home: "← ulzuhan"
+      },
+      en: {
+        meta_title: "Beacon of Faith · Faro de Fe",
+        meta_desc: "Daily Catholic devotional app — daily quotes and saints, Rosary, Divine Mercy Chaplet, Stations of the Cross, gratitude journal, votive chapel.",
+        title: "Beacon of Faith",
+        subtitle: "Faro de Fe",
+        tagline: "A light on your spiritual journey",
+        desc_p1: "Free Catholic devotional app — daily quotes and saints, Rosary, Divine Mercy Chaplet, Stations of the Cross, gratitude journal, votive chapel. All on your device, no account required, ad-free.",
+        btn_privacy: "Privacy Policy",
+        btn_terms: "Terms of Use",
+        back_home: "← ulzuhan"
+      }
+    };
+
+    function switchLanguage(lang) {
+      if (!translations[lang]) return;
+      
+      // Update local storage
+      localStorage.setItem('preferred_language', lang);
+      
+      // Toggle selector buttons
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+      
+      // Translate meta details
+      document.title = translations[lang].meta_title;
+      document.getElementById('meta-desc').setAttribute('content', translations[lang].meta_desc);
+      
+      // Translate all data-i18n items
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+    }
+
+    // Init Language on Load
+    (function initLanguage() {
+      // 1. Check URL parameters e.g., ?lang=en
+      const params = new URLSearchParams(window.location.search);
+      let lang = params.get('lang');
+      
+      // 2. Check hash parameter e.g., #en
+      if (!lang && window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        if (hash === 'en' || hash === 'es') {
+          lang = hash;
+        }
+      }
+      
+      // 3. Check localStorage
+      if (!lang) {
+        lang = localStorage.getItem('preferred_language');
+      }
+      
+      // 4. Check browser language fallback
+      if (!lang) {
+        const browserLang = navigator.language || navigator.userLanguage;
+        lang = browserLang.startsWith('es') ? 'es' : 'en';
+      }
+      
+      // Apply identified language (defaults to 'es' if something goes weird)
+      switchLanguage(lang === 'en' ? 'en' : 'es');
+    })();
+  </script>
 </body>
 </html>
