@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ulzuhan</title>
-  <meta name="description" content="Aplicaciones móviles por Manuel Linares.">
+  <meta name="description" id="meta-desc" content="Aplicaciones móviles por Manuel Linares.">
   <style>
     :root {
       --primary: #C0A062;
@@ -12,6 +12,7 @@
       --muted: #6b6b6b;
       --bg: #FDFBF5;
       --border: #e6e0d2;
+      --surface: #ffffff;
     }
     * { box-sizing: border-box; }
     body {
@@ -27,10 +28,47 @@
     .wrap {
       max-width: 640px;
       margin: 0 auto;
-      padding: 80px 24px 40px;
+      padding: 96px 24px 40px;
       flex: 1;
       width: 100%;
+      position: relative;
     }
+    
+    /* Language selector premium styling */
+    .lang-selector {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      display: inline-flex;
+      gap: 4px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      background: var(--surface);
+      z-index: 100;
+    }
+    
+    .lang-selector button {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .lang-selector button.active {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    
+    .lang-selector button:hover:not(.active) {
+      color: var(--text);
+    }
+
     h1 {
       margin: 0 0 4px;
       font-size: 28px;
@@ -91,33 +129,131 @@
       border-top: 1px solid var(--border);
     }
     footer a { color: var(--primary); }
+
+    @media (max-width: 480px) {
+      .wrap {
+        padding: 80px 16px 40px;
+      }
+      .lang-selector {
+        top: 16px;
+        right: 16px;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <h1>ulzuhan</h1>
-    <div class="subtitle">Aplicaciones por Manuel Linares</div>
+    
+    <!-- Premium Language Selector -->
+    <div class="lang-selector">
+      <button id="btn-es" onclick="switchLanguage('es')">ES</button>
+      <button id="btn-en" onclick="switchLanguage('en')">EN</button>
+    </div>
 
-    <h2>Apps</h2>
+    <h1>ulzuhan</h1>
+    <div class="subtitle" data-i18n="subtitle">Aplicaciones por Manuel Linares</div>
+
+    <h2 data-i18n="apps_title">Apps</h2>
     <a class="app-card" href="./beacon-of-faith/">
       <div>
         <span class="app-icon">✝</span>
-        <span class="app-card-title">Faro de Fe · Beacon of Faith</span>
+        <span class="app-card-title" data-i18n="beacon_title">Faro de Fe · Beacon of Faith</span>
       </div>
-      <p class="app-card-desc" style="margin-top: 12px;">App católica de inspiración diaria — citas, santo del día, rosario, novenas y más.</p>
+      <p class="app-card-desc" style="margin-top: 12px;" data-i18n="beacon_desc">App católica de inspiración diaria — citas, santo del día, rosario, novenas y más.</p>
     </a>
 
     <a class="app-card" href="./stoa/" style="margin-top: 16px;">
       <div>
         <span class="app-icon">🏛️</span>
-        <span class="app-card-title">Stoa · Senda Estoica</span>
+        <span class="app-card-title" data-i18n="stoa_title">Stoa · Senda Estoica</span>
       </div>
-      <p class="app-card-desc" style="margin-top: 12px;">Compañero estoico de bolsillo 100% offline y privado — dicotomía del control, diario estoico, memento mori y academia offline.</p>
+      <p class="app-card-desc" style="margin-top: 12px;" data-i18n="stoa_desc">Compañero estoico de bolsillo 100% offline y privado — dicotomía del control, diario estoico, memento mori y academia offline.</p>
     </a>
   </div>
 
   <footer>
     <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a>
   </footer>
+
+  <!-- Vanilla i18n Engine -->
+  <script>
+    const translations = {
+      es: {
+        meta_title: "ulzuhan",
+        meta_desc: "Aplicaciones móviles por Manuel Linares.",
+        subtitle: "Aplicaciones por Manuel Linares",
+        apps_title: "Apps",
+        beacon_title: "Faro de Fe · Beacon of Faith",
+        beacon_desc: "App católica de inspiración diaria — citas, santo del día, rosario, novenas y más.",
+        stoa_title: "Stoa · Senda Estoica",
+        stoa_desc: "Compañero estoico de bolsillo 100% offline y privado — dicotomía del control, diario estoico, memento mori y academia offline."
+      },
+      en: {
+        meta_title: "ulzuhan",
+        meta_desc: "Mobile applications by Manuel Linares.",
+        subtitle: "Applications by Manuel Linares",
+        apps_title: "Apps",
+        beacon_title: "Beacon of Faith · Faro de Fe",
+        beacon_desc: "Catholic daily devotional app — quotes, saint of the day, rosary, novenas, and more.",
+        stoa_title: "Stoa · Stoic Path",
+        stoa_desc: "100% offline and private pocket stoic companion — dichotomy of control, stoic journal, memento mori, and offline academy."
+      }
+    };
+
+    function switchLanguage(lang) {
+      if (!translations[lang]) return;
+      
+      // Update local storage
+      localStorage.setItem('preferred_language', lang);
+      
+      // Toggle selector buttons
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+      
+      // Translate meta details
+      document.title = translations[lang].meta_title;
+      document.getElementById('meta-desc').setAttribute('content', translations[lang].meta_desc);
+      
+      // Translate all data-i18n items
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+    }
+
+    // Init Language on Load
+    (function initLanguage() {
+      // 1. Check URL parameters e.g., ?lang=en
+      const params = new URLSearchParams(window.location.search);
+      let lang = params.get('lang');
+      
+      // 2. Check hash parameter e.g., #en
+      if (!lang && window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        if (hash === 'en' || hash === 'es') {
+          lang = hash;
+        }
+      }
+      
+      // 3. Check localStorage
+      if (!lang) {
+        lang = localStorage.getItem('preferred_language');
+      }
+      
+      // 4. Check browser language fallback
+      if (!lang) {
+        const browserLang = navigator.language || navigator.userLanguage;
+        lang = browserLang.startsWith('es') ? 'es' : 'en';
+      }
+      
+      // Apply identified language (defaults to 'es' if something goes weird)
+      switchLanguage(lang === 'en' ? 'en' : 'es');
+    })();
+  </script>
 </body>
 </html>

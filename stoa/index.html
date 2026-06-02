@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stoa: Senda Estoica — Filosofía y Diario Diario</title>
-  <meta name="description" content="Compañero estoico de bolsillo 100% offline y privado. Dicotomía del control, diario estoico, memento mori y academia offline.">
+  <meta name="description" id="meta-desc" content="Compañero estoico de bolsillo 100% offline y privado. Dicotomía del control, diario estoico, memento mori y academia offline.">
   
   <!-- Modern Google Fonts pairings -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,8 +55,45 @@
     .wrap {
       max-width: 800px;
       margin: 0 auto;
-      padding: 80px 24px;
+      padding: 96px 24px 80px;
       text-align: center;
+      position: relative;
+    }
+    
+    /* Language selector premium styling */
+    .lang-selector {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      display: inline-flex;
+      gap: 4px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 4px;
+      background: var(--surface);
+      z-index: 100;
+    }
+    
+    .lang-selector button {
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .lang-selector button.active {
+      background: var(--primary);
+      color: var(--bg);
+    }
+    
+    .lang-selector button:hover:not(.active) {
+      color: var(--text);
     }
     
     /* Classical architecture header */
@@ -308,7 +345,11 @@
         font-size: 2.4rem;
       }
       .wrap {
-        padding: 48px 16px;
+        padding: 80px 16px 48px;
+      }
+      .lang-selector {
+        top: 16px;
+        right: 16px;
       }
     }
   </style>
@@ -317,6 +358,12 @@
   <div class="bg-grid"></div>
   
   <div class="wrap">
+    
+    <!-- Premium Language Selector -->
+    <div class="lang-selector">
+      <button id="btn-es" onclick="switchLanguage('es')">ES</button>
+      <button id="btn-en" onclick="switchLanguage('en')">EN</button>
+    </div>
     
     <div class="logo-container">
       <div class="logo">
@@ -328,42 +375,42 @@
     </div>
     
     <h1>Stoa</h1>
-    <div class="subtitle">Senda Estoica</div>
+    <div class="subtitle" data-i18n="subtitle">Senda Estoica</div>
     
     <div class="quote-box">
-      "No pretendas que los sucesos ocurran como tú quieres, sino quiere que los sucesos ocurran como ocurren y te irá bien."
-      <div class="quote-author">— Epicteto</div>
+      <span data-i18n="quote_text">"No pretendas que los sucesos ocurran como tú quieres, sino quiere que los sucesos ocurran como ocurren y te irá bien."</span>
+      <div class="quote-author" data-i18n="quote_author">— Epicteto</div>
     </div>
     
     <div class="description">
-      <p><strong>Stoa: Senda Estoica</strong> es una fortaleza mental de bolsillo. Una aplicación móvil diseñada con arquitectura 100% offline y de coste cero, enfocada en proteger con absoluto rigor tu privacidad. Aquí tus reflexiones, temores y pensamientos jamás saldrán de tu dispositivo.</p>
-      <p style="color: var(--muted); font-size: 0.95rem;">Un refugio diario de paz y templanza, inspirado en Marco Aurelio, Séneca y Epicteto para ejercitar tu carácter de manera práctica.</p>
+      <p data-i18n="desc_p1"><strong>Stoa: Senda Estoica</strong> es una fortaleza mental de bolsillo. Una aplicación móvil diseñada con arquitectura 100% offline y de coste cero, enfocada en proteger con absoluto rigor tu privacidad. Aquí tus reflexiones, temores y pensamientos jamás saldrán de tu dispositivo.</p>
+      <p style="color: var(--muted); font-size: 0.95rem;" data-i18n="desc_p2">Un refugio diario de paz y templanza, inspirado en Marco Aurelio, Séneca y Epicteto para ejercitar tu carácter de manera práctica.</p>
     </div>
     
     <div class="features-grid">
       
       <div class="feature-card">
         <span class="feature-icon">🏛️</span>
-        <h3 class="feature-title">Dicotomía del Control</h3>
-        <p class="feature-desc">Separa racionalmente las situaciones que dependen de tu voluntad de las que corresponden al destino externo.</p>
+        <h3 class="feature-title" data-i18n="feat1_title">Dicotomía del Control</h3>
+        <p class="feature-desc" data-i18n="feat1_desc">Separa racionalmente las situaciones que dependen de tu voluntad de las que corresponden al destino externo.</p>
       </div>
       
       <div class="feature-card">
         <span class="feature-icon">✒️</span>
-        <h3 class="feature-title">Diario de Fortaleza</h3>
-        <p class="feature-desc">Escribe tus reflexiones matutinas para preparar tu carácter y tus exámenes nocturnos de conciencia.</p>
+        <h3 class="feature-title" data-i18n="feat2_title">Diario de Fortaleza</h3>
+        <p class="feature-desc" data-i18n="feat2_desc">Escribe tus reflexiones matutinas para preparar tu carácter y tus exámenes nocturnos de conciencia.</p>
       </div>
       
       <div class="feature-card">
         <span class="feature-icon">⏳</span>
-        <h3 class="feature-title">Memento Mori</h3>
-        <p class="feature-desc">Un tapiz interactivo en cuadrícula de tus semanas de vida para valorar activamente cada instante presente.</p>
+        <h3 class="feature-title" data-i18n="feat3_title">Memento Mori</h3>
+        <p class="feature-desc" data-i18n="feat3_desc">Un tapiz interactivo en cuadrícula de tus semanas de vida para valorar activamente cada instante presente.</p>
       </div>
       
       <div class="feature-card">
         <span class="feature-icon">📜</span>
-        <h3 class="feature-title">Academia Offline</h3>
-        <p class="feature-desc">Aprende los fundamentos de la Estoa y las virtudes cardinales con lecciones clásicas disponibles sin conexión.</p>
+        <h3 class="feature-title" data-i18n="feat4_title">Academia Offline</h3>
+        <p class="feature-desc" data-i18n="feat4_desc">Aprende los fundamentos de la Estoa y las virtudes cardinales con lecciones clásicas disponibles sin conexión.</p>
       </div>
       
     </div>
@@ -372,15 +419,116 @@
       <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.stoa.senda_estoica" target="_blank" rel="noopener">
         <span>Google Play</span>
       </a>
-      <a class="btn btn-secondary" href="./privacy.html">Política de Privacidad</a>
-      <a class="btn btn-secondary" href="./terms.html">Términos de Uso</a>
+      <a class="btn btn-secondary" href="./privacy.html" data-i18n="btn_privacy">Política de Privacidad</a>
+      <a class="btn btn-secondary" href="./terms.html" data-i18n="btn_terms">Términos de Uso</a>
     </div>
     
     <footer>
       <p>© 2026 Manuel Linares · <a href="mailto:ulzuhan.market@gmail.com">ulzuhan.market@gmail.com</a></p>
-      <a class="back-home" href="../">← ulzuhan</a>
+      <a class="back-home" href="../" data-i18n="back_home">← ulzuhan</a>
     </footer>
     
   </div>
+
+  <!-- Vanilla i18n Engine -->
+  <script>
+    const translations = {
+      es: {
+        meta_title: "Stoa: Senda Estoica — Filosofía y Diario Diario",
+        meta_desc: "Compañero estoico de bolsillo 100% offline y privado. Dicotomía del control, diario estoico, memento mori y academia offline.",
+        subtitle: "Senda Estoica",
+        quote_text: "“No pretendas que los sucesos ocurran como tú quieres, sino quiere que los sucesos ocurran como ocurren y te irá bien.”",
+        quote_author: "— Epicteto",
+        desc_p1: "<strong>Stoa: Senda Estoica</strong> es una fortaleza mental de bolsillo. Una aplicación móvil diseñada con arquitectura 100% offline y de coste cero, enfocada en proteger con absoluto rigor tu privacidad. Aquí tus reflexiones, temores y pensamientos jamás saldrán de tu dispositivo.",
+        desc_p2: "Un refugio diario de paz y templanza, inspirado en Marco Aurelio, Séneca y Epicteto para ejercitar tu carácter de manera práctica.",
+        feat1_title: "Dicotomía del Control",
+        feat1_desc: "Separa racionalmente las situaciones que dependen de tu voluntad de las que corresponden al destino externo.",
+        feat2_title: "Diario de Fortaleza",
+        feat2_desc: "Escribe tus reflexiones matutinas para preparar tu carácter y tus exámenes nocturnos de conciencia.",
+        feat3_title: "Memento Mori",
+        feat3_desc: "Un tapiz interactivo en cuadrícula de tus semanas de vida para valorar activamente cada instante presente.",
+        feat4_title: "Academia Offline",
+        feat4_desc: "Aprende los fundamentos de la Estoa y las virtudes cardinales con lecciones clásicas disponibles sin conexión.",
+        btn_privacy: "Política de Privacidad",
+        btn_terms: "Términos de Uso",
+        back_home: "← ulzuhan"
+      },
+      en: {
+        meta_title: "Stoa: Stoic Path — Philosophy & Daily Journal",
+        meta_desc: "A 100% offline & private pocket stoic companion. Dichotomy of control, stoic journal, memento mori, and offline academy.",
+        subtitle: "Stoic Path",
+        quote_text: "“Seek not that the things which happen should happen as you wish; but wish the things which happen to be as they are, and you will have a tranquil flow of life.”",
+        quote_author: "— Epictetus",
+        desc_p1: "<strong>Stoa: Stoic Path</strong> is a mental fortress in your pocket. A mobile app designed with a 100% offline-first, zero-cost architecture focused on safeguarding your absolute privacy. Here, your reflections, concerns, and diaries never leave your device.",
+        desc_p2: "A daily sanctuary of peace and temperance inspired by Marcus Aurelius, Seneca, and Epictetus to practically exercise your character.",
+        feat1_title: "Dichotomy of Control",
+        feat1_desc: "Rationally separate variables within your active will from external outcomes belonging to fate.",
+        feat2_title: "Fortress Journal",
+        feat2_desc: "Begin your day with morning reflections to prepare your character and finish with evening self-examinations.",
+        feat3_title: "Memento Mori",
+        feat3_desc: "An interactive grid tapestry visualizing your weeks of life to actively cherish every present moment.",
+        feat4_title: "Offline Academy",
+        feat4_desc: "Learn the core foundations of the Painted Porch and the cardinal virtues with completely offline lessons.",
+        btn_privacy: "Privacy Policy",
+        btn_terms: "Terms of Use",
+        back_home: "← ulzuhan"
+      }
+    };
+
+    function switchLanguage(lang) {
+      if (!translations[lang]) return;
+      
+      // Update local storage
+      localStorage.setItem('preferred_language', lang);
+      
+      // Toggle selector buttons
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+      
+      // Translate meta details
+      document.title = translations[lang].meta_title;
+      document.getElementById('meta-desc').setAttribute('content', translations[lang].meta_desc);
+      
+      // Translate all data-i18n items
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          element.innerHTML = translations[lang][key];
+        }
+      });
+    }
+
+    // Init Language on Load
+    (function initLanguage() {
+      // 1. Check URL parameters e.g., ?lang=en
+      const params = new URLSearchParams(window.location.search);
+      let lang = params.get('lang');
+      
+      // 2. Check hash parameter e.g., #en
+      if (!lang && window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        if (hash === 'en' || hash === 'es') {
+          lang = hash;
+        }
+      }
+      
+      // 3. Check localStorage
+      if (!lang) {
+        lang = localStorage.getItem('preferred_language');
+      }
+      
+      // 4. Check browser language fallback
+      if (!lang) {
+        const browserLang = navigator.language || navigator.userLanguage;
+        lang = browserLang.startsWith('es') ? 'es' : 'en';
+      }
+      
+      // Apply identified language (defaults to 'es' if something goes weird)
+      switchLanguage(lang === 'en' ? 'en' : 'es');
+    })();
+  </script>
 </body>
 </html>
